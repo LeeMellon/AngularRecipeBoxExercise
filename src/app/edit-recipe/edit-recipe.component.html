@@ -1,0 +1,9 @@
+<div *ngIf="childEditRecipe">The Recipe!
+
+<h3>{{childEditRecipe.title}}</h3>
+<h3>Edit Recipe</h3>
+<input [(ngModel)]="childEditRecipe.title">
+<input [(ngModel)]="childEditRecipe.ingredients">
+<input [(ngModel)]="childEditRecipe.procedure">
+<button (click)="finishEditing()">Done!</button>
+</div>

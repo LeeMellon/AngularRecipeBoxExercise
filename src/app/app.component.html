@@ -1,25 +1,11 @@
 
 
-<form class="" action="index.html" method="post">
-  <label for="recipe-form"></label>
-<input type="text" name="recipe-name" value="" placeholder="name">
-<input type="text" name="reipe-ingredients" value="" placeholder="ingredients">
-<input type="text" name="recipe-description" value="" placeholder="description">
-<button type="button" name="button">Add</button>
-</form>
 
 
 
 <h1>Recipes</h1>
-<app-recipe-list [childRecipeList]="masterRecipieList" (clickSender)="viewRecipeClicked($event)"></app-recipe-list>
 
-
-<div *ngIf="selectedRecipe">The Recipe!
-
-<h3>{{selectedRecipe.title}}</h3>
-<h3>View Recipe</h3>
-<input [(ngModel)]="selectedRecipe.title">
-<input [(ngModel)]="selectedRecipe.ingredients">
-<input [(ngModel)]="selectedRecipe.procedure">
-<button (click)="clear()">Clear</button>
-</div>
+<app-recipe-list [childRecipeList]="masterRecipieList" (viewClickSender)="viewRecipeClicked($event)" (editClickSender)="editRecipeClicked($event)"></app-recipe-list>
+<app-edit-recipe [childEditRecipe]="selectedEditRecipe" (clickedDone)="finishEditing()"></app-edit-recipe>
+<app-view-recipe [childViewRecipe]="selectedViewRecipe" (clickedDoneView)="finishViewing()"></app-view-recipe>
+<app-new-recipe (createdSender)="newRecipe($event)"></app-new-recipe>

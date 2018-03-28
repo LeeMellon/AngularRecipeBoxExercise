@@ -1,3 +1,13 @@
+<h2>Recipes</h2>
+<select (change)="onChange($event.target.value)">
+<option value="allRecipes" selected="selected">All Recipes</option>
+<option value="vegitarianRecipes">Vegitarian Recipes</option>
+<option value="meatRecipes"> Meat Recipes</option>
+</select>
 <ol>
-  <li *ngFor="let recipe of childRecipeList">{{recipe.title}}  {{recipe.id}}<button (click)="viewRecipeClicked(recipe)">View This Recipe</button> </li>
+  <li  *ngFor="let recipe of childRecipeList | vegitarian:filterByVegitarian ">{{recipe.title}}
+    <input *ngIf="recipe.vegitarian === true" type="checkbox" checked (click)="toggleVegitarian(recipe, false)"/>
+    <input *ngIf="recipe.vegitarian === false" type="checkbox" (click)="toggleVegitarian(recipe, true)"/>
+     <button (click)="viewClicked(recipe)">View This Recipe</button> <button (click)="editClicked(recipe)">Edit This Recipe</button>
+   </li>
 </ol>

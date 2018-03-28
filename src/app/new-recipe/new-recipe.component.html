@@ -1,0 +1,12 @@
+
+
+
+<form class="new-recipe" action="index.html" method="post">
+  <label for="recipe-form"></label>
+<input #newTitle placeholder="name">
+<input #newIngredients placeholder="ingredients">
+<input #newProcedure placeholder="procedure">
+<input #newVegitarian placeholder="vegitarian">
+<input #newId placeholder="id">
+<button (click)="create(newTitle.value, newIngredients.value, newProcedure.value, newVegitarian.value, newId.value); newTitle.value=''; newIngredients.value=''; newProcedure.value=''; newVegitarian.value='' ; newId.value=''; ">Add New Recipe</button>
+</form>
